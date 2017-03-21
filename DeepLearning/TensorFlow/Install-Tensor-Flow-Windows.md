@@ -11,6 +11,8 @@ As of March 21, 2017, the most updated Python 3 version is Python 3.6. However, 
 
 ### 2. Run the following command to install TensorFlow
 
+This instruction is based on a thread in [stackoverflow](http://stackoverflow.com/questions/42755129/installing-tensorfow-not-supported-wheel).
+
 		conda create --name tensorflow python=3.5
 		activate tensorflow
 		conda install jupyter
@@ -39,8 +41,8 @@ Run the following Python scripts to test whether your TensorFlow is installed su
 		sess = tf.Session()
 		print(sess.run(hello))
 
-If you see _**b'Hello Hang, Welcome to TensorFlow!'**_, that means your TensorFlow is installed properly. 
+If you see _**b'Hello Hang, Welcome to TensorFlow!'**_ in result, that means your TensorFlow is installed properly. When you run these scripts for the first time, there will be some warnings in your Python console like the following image. No need to worry about them.  
 
-	
+![1](../../media/tensorflow-warning.png)	
 
 
