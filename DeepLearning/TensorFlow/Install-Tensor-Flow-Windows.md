@@ -32,7 +32,37 @@ If you would like to use Jupyter Notebooks to develop your Python scripts, you c
 
 Then, you can access your Jupyter Notebook via a browser using the following url: _**localhost:8888**_
 
-### 4. Test whether your TensorFlow is installed successfully
+### 4. (Required for TensorFlow on GPU) Install CUDA toolkit and deep learning toolkit
+
+These two toolkits are needed if you want to run TensorFlow on GPU. 
+
+Click the [CUDA toolkit link](https://developer.nvidia.com/cuda-downloads), select the operating system of your machine, download the installer, and install the CUDA toolkit. 
+
+The deep learning toolkit (cudnn) has different versions. To know which version is needed to run your tensorflow, you can first launch your Python console, and run the following command:
+
+	import tensorflow as tf
+
+![2](../../media/tensorflow-success.png)
+
+If you see that all needed libraries are loaded successfully, your TensorFlow on GPU has been installed successfully. Otherwise, if you see an error complaining that _cudnn64\_5.dll_ cannot be found, take the following steps:
+
+- Go to the [download page](https://developer.nvidia.com/rdp/cudnn-download)
+ 
+- Select _***Download cuDNN v5.1 (Jan 20, 2017), for CUDA 7.5***_. 
+
+>[NOTE] If when you import tensorflow in Python, you see an error complaining that _cudnn64\_6.dll_ cannot be found, you should select _***Download cuDNN v5.1 (Jan 20, 2017), for CUDA 8.0***_.
+ 
+- Select the operating system of your machine and download the zip file.
+
+- Unzip it to a local directory (for instance, C:\tools). After unzipping, you should be able to see _cudnn64\_5.dll_ in _C:\tools\cuda\bin_.
+
+- Run the following Powershell command to add the path to _cudnn64\_5.dll_ (_C:\tools\cuda\bin_ in this example) to the system path
+
+		[Environment]::SetEnvironmentVariable( "Path", $env:Path+";C:\tools\cuda\bin", [System.EnvironmentVariableTarget]::Machine )
+
+>[NOTE]You might need to reopen your Powershell window in order for this change being recognized by Powershell. 
+
+### 5. Test whether your TensorFlow is installed successfully
 
 Run the following Python scripts to test whether your TensorFlow is installed successfully.
  
@@ -43,6 +73,6 @@ Run the following Python scripts to test whether your TensorFlow is installed su
 
 If you see _**b'Hello Hang, Welcome to TensorFlow!'**_ in result, that means your TensorFlow is installed properly. When you run these scripts for the first time, there will be some warnings in your Python console like the following image. No need to worry about them.  
 
-![1](../../media/tensorflow-warning.png)	
+![1](../../media/tensorflow-warning.png)
 
 
